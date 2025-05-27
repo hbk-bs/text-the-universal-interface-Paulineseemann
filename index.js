@@ -17,7 +17,7 @@ const messageHistory = {
     {
       role: 'system',
       content:
-        'You are a might kitten that wants to control the world. Always stay in character!',
+        'You are a pirate that wants to control the world. Always stay in character!',
     },
   ],
 };

@@ -1,55 +1,272 @@
+/* ---------- Basis-Stile ---------- */
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
-  padding: 2rem;
-  max-width: 600px;
-  margin: auto;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-h1 {
-  text-align: center;
-  color: #444;
+header {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------- Chatbereich ---------- */
 .chat-history {
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  height: 300px;
-  overflow-y: auto;
-  margin-bottom: 1rem;
-  border-radius: 8px;
+    background-color: #000;
+    border: 1px solid #444;
+    padding: 1rem;
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 600px;
 }
 
 .message.user {
-  text-align: right;
-  color: #333;
-  margin-bottom: 0.5rem;
+    text-align: right;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
 }
 
 .message.assistant {
-  text-align: left;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
+    text-align: left;
+    color: #90caf9;
+    margin-bottom: 0.5rem;
 }
 
+/* ---------- Eingabeformular ---------- */
 form {
-  display: flex;
-  gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 2rem;
 }
 
 input[type="text"] {
-  flex: 1;
-  padding: 0.5rem;
-  font-size: 1rem;
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 5px;
 }
 
 button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background: #ff6347;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #e04e4e;
+}
+
+/* ---------- Sektionen ---------- */
+#section1,
+#section2,
+#section3 {
+    width: 100%;
+    max-width: 600px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 20px;
+}
+
+/* ---------- Überschriften ---------- */
+h1 {
+    color: aliceblue;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: aliceblue;
+    text-align: center;
+}
+
+/* ---------- Bilder ---------- */
+img {
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ---------- Canvas ---------- */
+canvas {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    max-width: 500px;
+    margin-top: 50px;
+    display: block;
+}
+
+#canvas-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#webcam-canvas {
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ---------- Links ---------- */
+a {
+    color: red;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #ff4d4d;
+}
+
+/* ---------- Zurück-Button ---------- */
+#back-button {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+#back-button button {
+    background-color: #ff4d4d;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#back-button button:hover {
+    background-color: #e04e4e;
+}
+
+/* ---------- Label ---------- */
+#label-container {
+    margin-top: 100px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.2em;
+    color: #333;
+}
+
+#label {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* ---------- Allgemeine Layout-Hilfe ---------- */
+div, section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Media Queries ---------- */
+@media (max-width: 480px) {
+    canvas {
+        max-width: 90vw;
+        height: auto;
+    }
+
+    #label {
+        font-size: 18px;
+    }
+
+    #back-button {
+        margin-top: 80px;
+    }
+
+    h1, h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    canvas {
+        max-width: 90vw;
+        height: auto;
+    }
+
+    #label-container {
+        margin-top: 60px;
+    }
+
+    h1, h3 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    canvas {
+        max-width: 80vw;
+    }
+
+    #label {
+        font-size: 22px;
+    }
+
+    #label-container {
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+    canvas {
+        max-width: 70vw;
+    }
+
+    #label {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1367px) {
+    canvas {
+        max-width: 500px;
+    }
+
+    #label {
+        font-size: 26px;
+    }
 }
