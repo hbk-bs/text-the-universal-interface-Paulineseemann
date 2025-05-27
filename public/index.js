@@ -22,7 +22,7 @@ const messageHistory = {
   ],
 };
 
-const apiEndpoint = 'https://ff6347-openai-api.val.run/';
+const apiEndpoint = 'https://Paulineseemann--97aad4ffd15046e6a3e88d74a919f2a0.web.val.run/';
 
 document.addEventListener('DOMContentLoaded', () => {
   // get the history element
