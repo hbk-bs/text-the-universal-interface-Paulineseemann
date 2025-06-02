@@ -18,6 +18,7 @@ header {
     align-items: center;
     justify-content: center;
     max-width: 600px;
+    
 }
 
 main {
@@ -105,6 +106,7 @@ h1 {
     color: aliceblue;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 50px;
 }
 
 h3 {
@@ -269,4 +271,46 @@ div, section {
     #label {
         font-size: 26px;
     }
+}
+
+#image-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+#image-form input[type="file"] {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+#image-container img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border: 2px solid #444;
+}
+
+#drop-zone {
+  border: 2px dashed #aaa;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-sizing: border-box;
+}
+#drop-zone.dragover {
+  background: #e0e0e0;
 }
