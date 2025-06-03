@@ -23,7 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		const interval = setInterval(() => {
 			const resultContainer = document.getElementById('result');
 			if (!resultContainer) return;
-			resultContainer.innerHTML = `<p>Loading${dots[index]}</p>`;
+			// Nur anzeigen, wenn gerade geladen wird (nicht dauerhaft leeres Feld)
+			if (
+				resultContainer.innerHTML.trim() === '' ||
+				resultContainer.innerHTML.includes('loading')
+			) {
+				resultContainer.innerHTML = `<p class="loading">Loading${dots[index]}</p>`;
+			}
 			index++;
 			if (index === dots.length) index = 0;
 		}, 100);
