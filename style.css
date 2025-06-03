@@ -83,6 +83,7 @@ h1 {
 }
 
 p {
+    display: block;
     font-size: 1.05em !important;
     margin-bottom: 0.7em !important;
     margin-top: 0.2em !important;
@@ -92,6 +93,8 @@ p {
     background: rgba(0,0,0,0.18);
     padding: 0.4em 0.7em;
     border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #image-form {
@@ -440,123 +443,43 @@ div, section {
   border: 2px solid #444;
 }
 
-/* ---------- Kitsch-Modus ---------- */
-body.kitsch-mode {
-    background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%) !important;
-    color: #b30059 !important;
-    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif !important;
-    transition: background 1s;
-}
-
-body.kitsch-mode main,
-body.kitsch-mode #section1,
-body.kitsch-mode #section2,
-body.kitsch-mode #section3 {
-    max-width: 420px !important;
-    width: 98vw !important;
-    padding: 1em 0.5em 1.5em 0.5em !important;
-    margin: 2em auto 0 auto !important;
-    gap: 1em !important;
-    box-sizing: border-box;
-}
-
-/* Bild und Ergebnis-Container anpassen */
+/* Einheitliche maximale Breite für alle Hauptbereiche und Container */
+main,
+.headline-container,
+#image-form,
 #image-container,
 #result,
+body.kitsch-mode main,
+body.kitsch-mode .headline-container,
+body.kitsch-mode #image-form,
+body.kitsch-mode #image-container,
 body.kitsch-mode #result {
-    max-width: 98vw !important;
-    min-height: 60px !important;
-    margin: 0.5em auto !important;
-    padding: 0.3em !important;
+    max-width: 500px !important;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
     box-sizing: border-box;
 }
 
+/* Auch für das Bild selbst */
 #image-container img,
 body.kitsch-mode #image-container img {
-    max-width: 260px !important;
+    max-width: 500px !important;
+    width: 100%;
     height: auto !important;
-    margin-top: 0.4em !important;
-    border-width: 2px !important;
-    border-radius: 14px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Formular anpassen */
-#image-form {
-    max-width: 350px !important;
-    width: 100%;
-}
-
-/* Headline-Container bleibt mittig und etwas breiter */
-.headline-container {
-    margin-bottom: 0.7em !important;
-    padding: 0.7em 0.7em !important;
-    max-width: 420px !important;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Beschreibung im Kitsch-Mode ausblenden, aber NICHT das Gedicht im #result */
-body.kitsch-mode p:not(#result p) {
-    display: none !important;
-}
-
-/* Glitzer-Animation für Kitsch-Mode – jetzt noch glitzeriger und mit Pink */
-body.kitsch-mode::before {
-    content: "";
-    pointer-events: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image:
-        radial-gradient(circle, #fff8 1.2px, transparent 2.2px),
-        radial-gradient(circle, #ffe4e1cc 2px, transparent 3px),
-        radial-gradient(circle, #ffb6c1cc 2.2px, transparent 3.2px),
-        radial-gradient(circle, #fffacd99 1.5px, transparent 2.5px),
-        radial-gradient(circle, #ff69b4cc 2.5px, transparent 4px),
-        radial-gradient(circle, #ff1493cc 1.5px, transparent 2.5px),
-        radial-gradient(circle, #fff 0.7px, transparent 1.7px);
-    background-size: 100px 100px, 180px 180px, 140px 140px, 120px 120px, 160px 160px, 200px 200px, 220px 220px;
-    background-position:
-        0 0,
-        60px 80px,
-        30px 40px,
-        90px 20px,
-        120px 60px,
-        40px 120px,
-        80px 160px;
-    animation: glitter-move 2.2s linear infinite;
-    opacity: 0.95;
-}
-
-@keyframes glitter-move {
-    0% {
-        background-position:
-            0 0,
-            60px 80px,
-            30px 40px,
-            90px 20px,
-            120px 60px,
-            40px 120px,
-            80px 160px;
-    }
-    100% {
-        background-position:
-            100px 100px,
-            240px 260px,
-            210px 240px,
-            190px 120px,
-            220px 160px,
-            160px 220px,
-            180px 200px;
-    }
-}
-
-/* Gedicht-Textfeld ohne Container mit roter Umrandung */
+/* Das Gedicht-Textfeld (#result) zentrieren und max-width setzen */
 #result {
-    max-width: 98vw !important;
-    min-height: 60px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 500px !important;
+    width: 100%;
     margin: 0.5em auto !important;
     padding: 0.7em 0 !important;
     box-sizing: border-box;
@@ -566,16 +489,22 @@ body.kitsch-mode::before {
     font-size: 1.1em;
     color: #fff;
     transition: none;
+    min-height: 60px !important;
 }
 
 /* Im Kitsch-Mode: Gedicht-Textfeld mit auffälliger Umrandung */
 body.kitsch-mode #result {
     border: 2.5px dashed #ff69b4;
-    box-shadow: 0 0 24px #ffb6c1cc, 0 0 8px #fff4;
-    color: #ff69b4 !important; /* gleiche Farbe wie der Upload-Button im Kitsch-Mode */
-    background: rgba(255, 182, 193, 0.18);
-    padding: 0.7em 1em !important;
-    border-radius: 14px;
+    box-shadow: 0 0 18px #ffb6c1cc, 0 0 8px #fff4;
+    color: #ff69b4 !important; /* Gedicht-Schrift pink */
+    background: rgba(255, 255, 255, 0.82);
+    padding: 0.9em 1.2em !important;
+    border-radius: 16px;
+    font-size: 1.13em !important;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, 'Nimbus Mono PS', 'Courier New', monospace;
+    text-shadow:
+        0 0 6px #fff,
+        0 0 12px #ffb6c1;
     transition: background 0.3s, border 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
@@ -624,5 +553,154 @@ body.kitsch-mode #image-form input[type="file"]:focus {
     border-color: #ff69b4 !important;
     box-shadow: 0 0 12px #ffb6c1cc !important;
 }
+
+/* Glitzer-Animation für Kitsch-Mode – jetzt noch glitzeriger und mit Pink */
+body.kitsch-mode::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:
+        radial-gradient(circle, #fff 1.2px, transparent 2.2px),
+        radial-gradient(circle, #ffe4e1cc 1.5px, transparent 2.5px),
+        radial-gradient(circle, #ffb6c1cc 1.7px, transparent 2.7px),
+        radial-gradient(circle, #fffacd99 1.2px, transparent 2.2px),
+        radial-gradient(circle, #ff69b4cc 1.5px, transparent 3px),
+        radial-gradient(circle, #ff1493cc 1.2px, transparent 2.2px);
+    background-size: 120px 120px, 180px 180px, 140px 140px, 160px 160px, 200px 200px, 220px 220px;
+    background-position:
+        0 0,
+        60px 80px,
+        30px 40px,
+        90px 20px,
+        120px 60px,
+        40px 120px;
+    animation: glitter-move 2.2s linear infinite, glitter-blink 2.2s linear infinite alternate;
+    opacity: 0.45; /* Dezent, damit Inhalt gut lesbar bleibt */
+}
+
+/* Hauptbereich im Kitsch-Mode: rosa, aber heller für bessere Lesbarkeit */
+body.kitsch-mode main {
+    background: linear-gradient(120deg, #fff7fb 0%, #ffe4ef 40%, #ffb6c1 80%, #fff0fa 100%);
+    border-radius: 32px;
+    box-shadow: 0 0 32px #ffb6c188, 0 0 0 8px #ffe4e1 inset, 0 0 40px #ff69b455;
+    padding: 2em 1em 2em 1em !important;
+    border: 2px double #ff69b4;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Überschrift bleibt wie von dir gewünscht glitzernd und auffällig */
+body.kitsch-mode .headline-container h1,
+.magazin-glitter {
+    font-family: 'Bebas Neue', 'Impact', 'Arial Black', 'Comic Sans MS', cursive, sans-serif;
+    font-size: 3em !important;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg, #fff 10%, #ff69b4 40%, #ffe4e1 60%, #fff 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 24px #fff,
+        0 0 48px #ff69b4,
+        0 4px 16px #ffb6c1,
+        0 0 80px #ff69b4,
+        0 0 8px #fff,
+        4px 4px 0 #ffb6c1,
+        -4px -4px 0 #fff;
+    animation: glitter-magazine 1.1s linear infinite alternate, kitsch-blink 1.2s infinite alternate;
+}
+
+/* Gedicht-Textfeld: rosa, aber mit mehr Weiß für bessere Lesbarkeit */
+body.kitsch-mode #result {
+    border: 2.5px dashed #ff69b4;
+    box-shadow: 0 0 18px #ffb6c1cc, 0 0 8px #fff4;
+    color: #ff69b4 !important;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 0.9em 1.2em !important;
+    border-radius: 16px;
+    font-size: 1.13em !important;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, 'Nimbus Mono PS', 'Courier New', monospace;
+    text-shadow:
+        0 0 6px #fff,
+        0 0 12px #ffb6c1;
+    transition: background 0.3s, border 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+/* Upload-Button noch kitschiger */
+body.kitsch-mode #image-form button {
+    background: linear-gradient(90deg, #ff69b4 40%, #ffe4e1 100%);
+    color: #fff !important;
+    border: 2.5px solid #ff69b4 !important;
+    box-shadow: 0 0 16px #ffb6c1cc, 0 0 4px #fff4;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, 'Nimbus Mono PS', 'Courier New', monospace;
+    font-size: 1.1em !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+body.kitsch-mode #image-form button:hover,
+body.kitsch-mode #image-form button:focus {
+    background: linear-gradient(90deg, #ffe4e1 0%, #ff69b4 100%);
+    color: #ff69b4 !important;
+    border-color: #ff1493 !important;
+    box-shadow: 0 0 24px #ff69b4cc, 0 0 8px #fff4;
+}
+
+/* Datei-Auswahlfeld noch auffälliger */
+body.kitsch-mode #image-form input[type="file"] {
+    border-color: #ff69b4 !important;
+    box-shadow: 0 0 12px #ffb6c1cc !important;
+    background: #fff0fa !important;
+    color: #b30059 !important;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, 'Nimbus Mono PS', 'Courier New', monospace;
+    font-size: 1.05em !important;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+body.kitsch-mode #image-form input[type="file"]:hover,
+body.kitsch-mode #image-form input[type="file"]:focus {
+    background: #fff !important;
+    color: #ff69b4 !important;
+    border-color: #ff69b4 !important;
+    box-shadow: 0 0 20px #ffb6c1cc !important;
+}
+
+/* Erklärtext im Kitsch-Mode ausblenden */
+body.kitsch-mode main > p {
+    display: none !important;
+}
+
+/* Überschrift im Kitsch-Mode in Weiß */
+body.kitsch-mode .headline-container h1,
+body.kitsch-mode .magazin-glitter {
+    color: #fff !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    text-shadow:
+        0 0 24px #fff,
+        0 0 48px #ff69b4,
+        0 4px 16px #ffb6c1,
+        0 0 80px #ff69b4,
+        0 0 8px #fff,
+        4px 4px 0 #ffb6c1,
+        -4px -4px 0 #fff;
+}
+
+/* Bildumrandung pink im Kitsch-Mode */
+body.kitsch-mode #image-container img {
+    border: 3px solid #ff69b4 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 0 16px #ffb6c1cc, 0 0 4px #fff4;
+}
+
 
 
