@@ -172,6 +172,7 @@ a:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
 
 #back-button button:hover {
@@ -298,19 +299,63 @@ div, section {
   border: 2px solid #444;
 }
 
-#drop-zone {
-  border: 2px dashed #aaa;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 10px 0;
-  cursor: pointer;
-  transition: background 0.2s;
-  box-sizing: border-box;
+/* ---------- Kitsch-Modus ---------- */
+body.kitsch-mode {
+    background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%) !important;
+    color: #b30059 !important;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif !important;
+    transition: background 1s;
 }
-#drop-zone.dragover {
-  background: #e0e0e0;
+
+body.kitsch-mode main,
+body.kitsch-mode #section1,
+body.kitsch-mode #section2,
+body.kitsch-mode #section3 {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 4px dashed #ff69b4 !important;
+    box-shadow: 0 0 40px 10px #ffb6c1cc !important;
+}
+
+body.kitsch-mode h1,
+body.kitsch-mode h3 {
+    color: #ff69b4 !important;
+    text-shadow: 2px 2px 8px #fff0f5, 0 0 10px #ffb6c1;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif !important;
+    letter-spacing: 0.1em;
+}
+
+body.kitsch-mode p,
+body.kitsch-mode #result {
+    color: #b30059 !important;
+    background: linear-gradient(90deg, #fff0f5 0%, #ffe4e1 100%);
+    border-radius: 12px;
+    padding: 1em 1.5em;
+    box-shadow: 0 0 20px #ffb6c1aa;
+    font-size: 1.3em;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif !important;
+}
+
+body.kitsch-mode button,
+body.kitsch-mode #back-button button {
+    background: linear-gradient(90deg, #ff69b4 0%, #ffe4e1 100%) !important;
+    color: #b30059 !important;
+    border: 2px solid #ffb6c1 !important;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif !important;
+    box-shadow: 0 0 10px #ffb6c1;
+}
+
+body.kitsch-mode #image-container img {
+    border: 4px solid #ff69b4 !important;
+    box-shadow: 0 0 30px #ffb6c1cc, 0 0 0 10px #fff0f5 inset !important;
+    border-radius: 30px !important;
+    transition: box-shadow 0.5s;
+}
+
+body.kitsch-mode #result {
+    animation: kitsch-glow 1.5s infinite alternate;
+}
+
+@keyframes kitsch-glow {
+    from { box-shadow: 0 0 20px #ffb6c1aa; }
+    to   { box-shadow: 0 0 40px #ff69b4; }
 }

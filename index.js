@@ -127,6 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (!resultContainer) return;
 		const poeticLine = result.completion.choices[0].message.content;
 		resultContainer.innerHTML = `<p style="font-style:italic;color:#ffb347;">${poeticLine}</p>`;
+
+		// Kitsch-Style aktivieren
+		document.body.classList.add('kitsch-mode');
 	});
 });
 
