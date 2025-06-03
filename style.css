@@ -4,10 +4,11 @@ body {
     font-family: Arial, sans-serif;
     background-color: #121212;
     color: #ffffff;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: flex-start;
 }
 
 header {
@@ -24,8 +25,15 @@ header {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 600px;
+    margin: 3em auto 0 auto;
+    padding: 2em 1em 3em 1em;
+    box-sizing: border-box;
+    gap: 2em;
 }
 
 /* ---------- Chatbereich ---------- */
@@ -292,6 +300,19 @@ div, section {
   max-width: 400px;
 }
 
+#image-container,
+#result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    min-height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #image-container img {
   max-width: 100%;
   height: auto;
@@ -311,9 +332,14 @@ body.kitsch-mode main,
 body.kitsch-mode #section1,
 body.kitsch-mode #section2,
 body.kitsch-mode #section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     background: rgba(255, 255, 255, 0.85) !important;
     border: 4px dashed #ff69b4 !important;
     box-shadow: 0 0 40px 10px #ffb6c1cc !important;
+    gap: 2em;
 }
 
 body.kitsch-mode h1,
@@ -331,7 +357,7 @@ body.kitsch-mode #result {
     border-radius: 12px;
     padding: 1em 1.5em;
     box-shadow: 0 0 20px #ffb6c1aa;
-    font-size: 1.3em;
+    font-size: 1em;
     font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif !important;
 }
 
@@ -352,10 +378,26 @@ body.kitsch-mode #image-container img {
 }
 
 body.kitsch-mode #result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     animation: kitsch-glow 1.5s infinite alternate;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-size: 1em; /* Schriftgröße für das Gedicht verkleinert */
 }
 
 @keyframes kitsch-glow {
     from { box-shadow: 0 0 20px #ffb6c1aa; }
     to   { box-shadow: 0 0 40px #ff69b4; }
 }
+
+/* Kitsch-Modus: Nur erklärende p-Elemente ausblenden, aber NICHT das Gedicht im #result */
+body.kitsch-mode p:not(#result p) {
+    display: none !important;
+}
+
+
