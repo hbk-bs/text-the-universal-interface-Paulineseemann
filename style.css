@@ -293,25 +293,24 @@ a:hover {
 
 /* ---------- Zurück-Button ---------- */
 #back-button {
-    margin-top: 150px;
-    display: flex;
-    flex-direction: column;
-}
-
-#back-button button {
-    background-color: #ff4d4d;
+    margin: 2em auto 1em auto;
+    display: block;
+    background-color: #ff69b4;
     color: #fff;
-    font-size: 16px;
-    padding: 10px 20px;
+    font-size: 1.1em;
+    padding: 0.7em 2em;
     border: none;
-    border-radius: 5px;
+    border-radius: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    
+    box-shadow: 0 0 12px #ffb6c1cc;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
-#back-button button:hover {
-    background-color: #e04e4e;
+#back-button:hover {
+    background-color: #fff;
+    color: #ff69b4;
+    box-shadow: 0 0 24px #ff69b4cc;
+    border: 2px solid #ff69b4;
 }
 
 /* ---------- Label ---------- */
@@ -698,6 +697,189 @@ body.kitsch-mode #image-form input[type="file"] {
 /* Im Kitsch-Mode Upload-Button und Datei-Auswahlfeld ausblenden */
 body.kitsch-mode #image-form button,
 body.kitsch-mode #image-form input[type="file"] {
+    display: none !important;
+}
+
+.resize-link {
+    display: inline-block;
+    margin-top: 0.7em;
+    color: #ff69b4;
+    text-decoration: underline dotted;
+    transition: color 0.2s;
+}
+.resize-link:hover {
+    color: #b30059;
+    text-decoration: underline solid;
+}
+
+/* Nur im Kitsch-Mode den Zurück-Button anzeigen, sonst ausblenden */
+#back-button {
+    display: none !important;
+}
+
+body.kitsch-mode #back-button {
+    display: block !important;
+    font-family: 'Bebas Neue', 'Impact', 'Arial Black', 'Comic Sans MS', cursive, sans-serif !important;
+    font-size: 1.1em;
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 0.7em 2em;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 12px #ffb6c1cc;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 2em auto 1em auto;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+}
+
+/* Hover-Effekt für Zurück-Button */
+body.kitsch-mode #back-button:hover,
+body.kitsch-mode #back-button:focus {
+    background-color: #fff;
+    color: #ff69b4;
+    border: 2px solid #ff69b4;
+    box-shadow: 0 0 24px #ff69b4cc;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, Arial, sans-serif !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: 0 1px 4px #ffe4ef66, 0 0 1px #fff;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #232323;
+    padding: 1.2em 1em;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Responsive: auf kleinen Bildschirmen kompakter */
+@media (max-width: 600px) {
+    body:not(.kitsch-mode) main {
+        padding: 1em 0.2em 1.5em 0.2em !important;
+        gap: 1.2em;
+        border-radius: 12px;
+    }
+    body:not(.kitsch-mode) .headline-container {
+        padding: 0.5em 0.2em !important;
+    }
+    body:not(.kitsch-mode) main > p,
+    body:not(.kitsch-mode) #image-container,
+    body:not(.kitsch-mode) #result,
+    body:not(.kitsch-mode) #image-form {
+        padding: 0.7em 0.3em !important;
+        border-radius: 8px;
+        max-width: 98vw;
+    }
+}
+
+/* Die unteren beiden Container im Standard-Modus ausblenden */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
     display: none !important;
 }
 
