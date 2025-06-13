@@ -127,24 +127,25 @@ p {
 }
 
 #image-form button {
-    padding: 0.4em 1.2em;
+    background: none;
+    background-color: transparent;
+    color: #ff69b4 !important;
+    border: 2px solid #ff69b4;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1em;
-    background: #ff4d4d;
-    color: #fff;
-    border: 1px solid #ff4d4d;
+    padding: 0.4em 1.2em;
     border-radius: 4px;
     cursor: pointer;
-    font-family: 'Nimbus Mono PS', 'Courier New', monospace;
     transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     margin-top: 0.2em;
 }
 
 #image-form button:hover,
 #image-form button:focus {
-    background: #e04e4e;
-    color: #fff;
-    border-color: #e04e4e;
-    box-shadow: 0 0 8px #ff4d4d88;
+    background: #ff69b4;
+    color: #fff !important;
+    border-color: #ff69b4;
+    box-shadow: 0 0 8px #ffb6c1;
 }
 
 #image-container,
@@ -750,14 +751,14 @@ body.kitsch-mode #result {
     border: none !important;
     box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
     border-radius: 18px !important;
-    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, Arial, sans-serif !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
     font-size: 1.08em !important;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 1.5;
     text-align: center;
-    text-shadow: 0 1px 4px #ffe4ef66, 0 0 1px #fff;
+    text-shadow: none !important;
     padding: 1.1em 0.8em !important;
     margin: 1.2em auto 1em auto !important;
     max-width: 420px !important;
@@ -819,13 +820,14 @@ body:not(.kitsch-mode) main > p {
 
 /* Formular-Bereich */
 body:not(.kitsch-mode) #image-form {
-    background: #232323;
-    padding: 1.2em 1em;
-    border-radius: 14px;
-    box-shadow: 0 0 10px #ff69b422;
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
     margin-bottom: 1.5em;
     width: 100%;
-    max-width: 400px;
+    max-width: 540px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -857,31 +859,1345 @@ body:not(.kitsch-mode) #image-form button {
     display: block;
 }
 
-/* Responsive: auf kleinen Bildschirmen kompakter */
-@media (max-width: 600px) {
-    body:not(.kitsch-mode) main {
-        padding: 1em 0.2em 1.5em 0.2em !important;
-        gap: 1.2em;
-        border-radius: 12px;
-    }
-    body:not(.kitsch-mode) .headline-container {
-        padding: 0.5em 0.2em !important;
-    }
-    body:not(.kitsch-mode) main > p,
-    body:not(.kitsch-mode) #image-container,
-    body:not(.kitsch-mode) #result,
-    body:not(.kitsch-mode) #image-form {
-        padding: 0.7em 0.3em !important;
-        border-radius: 8px;
-        max-width: 98vw;
-    }
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Die unteren beiden Container im Standard-Modus ausblenden */
-body:not(.kitsch-mode) #image-container,
-body:not(.kitsch-mode) #result {
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
     display: none !important;
 }
 
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
 
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
 
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
+
+/* ---------- Gedicht-Generator spezifische Stile ---------- */
+body.kitsch-mode #result {
+    background: #fff !important;
+    color: #ff1493 !important;
+    border: none !important;
+    box-shadow: 0 0 18px #ffb6c155, 0 0 4px #fff4 !important;
+    border-radius: 18px !important;
+    font-family: 'Dancing Script', 'Pacifico', 'Satisfy', 'Caveat', cursive !important;
+    font-size: 1.08em !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none !important;
+    padding: 1.1em 0.8em !important;
+    margin: 1.2em auto 1em auto !important;
+    max-width: 420px !important;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    z-index: 10;
+    position: relative;
+    outline: 2px solid #ff69b4;
+    outline-offset: 4px;
+}
+
+/* Optional: Auf kleinen Bildschirmen etwas kompakter */
+@media (max-width: 600px) {
+    body.kitsch-mode #result {
+        font-size: 1.08em !important;
+        padding: 1.2em 0.5em !important;
+        margin: 1.2em auto 1em auto !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Hauptbereich (nur Standard, nicht Kitsch-Mode) strukturieren */
+body:not(.kitsch-mode) main {
+    background: #181818;
+    border-radius: 24px;
+    box-shadow: 0 0 32px #0008, 0 0 0 8px #222 inset;
+    padding: 2.5em 1.5em 3em 1.5em !important;
+    margin: 3em auto 0 auto !important;
+    max-width: 600px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+/* Überschrift-Bereich */
+body:not(.kitsch-mode) .headline-container {
+    margin-bottom: 1.5em !important;
+    padding: 1em 0.5em !important;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    text-align: center;
+}
+
+/* Erklärtext-Bereich */
+body:not(.kitsch-mode) main > p {
+    margin: 1.5em 0 2em 0 !important;
+    padding: 1em 1.2em !important;
+    background: #222;
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 1.08em !important;
+    line-height: 1.6;
+    box-shadow: 0 0 8px #0004;
+    text-align: center;
+    max-width: 540px;
+}
+
+/* Formular-Bereich */
+body:not(.kitsch-mode) #image-form {
+    background: #222;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0004;
+    padding: 1em 1.2em !important;
+    margin-bottom: 1.5em;
+    width: 100%;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Bild- und Ergebniscontainer */
+body:not(.kitsch-mode) #image-container,
+body:not(.kitsch-mode) #result {
+    background: #232323;
+    border-radius: 14px;
+    box-shadow: 0 0 10px #ff69b422;
+    padding: 1em 1em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    min-height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Buttons zentrieren */
+body:not(.kitsch-mode) #back-button,
+body:not(.kitsch-mode) #image-form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Bild und Loading-Hinweis im Hauptbereich (nicht Kitsch-Mode) ohne Container */
+body:not(.kitsch-mode) #image-container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body:not(.kitsch-mode) #image-container img {
+    max-width: 280px !important;
+    width: 100%;
+    height: auto !important;
+    border: 2px solid #444;
+    border-radius: 10px !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    margin: 0.5em auto 1em auto;
+    display: block;
+}
+
+/* Loading-Hinweis ohne Container-Stil */
+body:not(.kitsch-mode) #loading {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    margin: 1.5em auto 1em auto;
+    color: #ff69b4;
+    font-size: 1.15em;
+    font-family: 'Inter', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+    display: block !important;
+}
+
+/* Loading-Hinweis im Kitsch-Mode ausblenden */
+body.kitsch-mode #loading {
+    display: none !important;
+}
