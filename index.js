@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			messages: [
 				{
 					role: 'system',
-					content: `Du bist ein poetischer und kitschiger Kommentator. Zu jedem Bild schreibst du eine einzige, kurze, poetische und kitschige Zeile, inspiriert von dem, was du siehst. Antworte NUR mit der poetischen Zeile, ohne Erklärungen, ohne JSON, ohne Bewertung.`,
+					content: `Du bist ein poetischer und kitschiger Kommentator. Zu jedem Bild schreibst du eine kurze, poetische und kitschige Zeile, inspiriert von dem, was du siehst. Antworte NUR mit der poetischen Zeile, ohne Erklärungen, ohne JSON, ohne Bewertung.`,
 				},
 				{
 					role: 'user',
